@@ -10,6 +10,7 @@ public class AccessMachineImpl implements AccessMachine {
 	public AccessMachineImpl() {
 		this.setMachineState(MachineState.LOCKED);
 		this.setKeyActive(false);
+		
 	}
 
 	@Override
