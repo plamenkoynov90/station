@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Station</title>
+</head>
+<body>
+	<form action="/addDoor" method="POST">
+		<input type="submit" name="addDoor" value="Add door"/>
+	</form>
+	<p th:text="${msg}"></p>
+	<div th:each="door,iStat : ${doors}">
+		<form th:action="'/processAction/' + ${iStat.index}" method="POST">
+			<h1 th:text="Door + ' ' + ${iStat.index + 1}"></h1>
+			<h2 th:text="Access  + ' ' + ${door.accessMachine.machineState}"></h2>
+			<input type="submit" name="putCoin" value="Put coin"/>
+			<input type="submit" name="go" value="Go through"/>
+			<input type="submit" name="key" value="Use key"/>
+			<input type="submit" name="removeDoor" value="Remove door"/>
+		</form>
+	</div>
+</body>
+</html>
